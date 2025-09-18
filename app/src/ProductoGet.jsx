@@ -23,20 +23,7 @@ function ProductoGet() {
             .catch((error) => console.error("Error al obtener productos:", error));
     }
 
-    async function eliminar(id) {
-        try {
-            await fetch(`${API_URL}?id=eq.${id}`, {
-                method: "DELETE",
-                headers: {
-                    apikey: API_KEY,
-                    Authorization: `Bearer ${API_KEY}`
-                }
-            });
-            obtenerProductos();
-        } catch (error) {
-            console.error("Error al eliminar producto:", error);
-        }
-    }
+    // ...eliminada función eliminar...
 
     // ...eliminado función de edición...
 
@@ -55,7 +42,7 @@ function ProductoGet() {
                         <th>Stock</th>
                         <th>Descripción</th>
                         <th>Estado</th>
-                        <th>Acciones</th>
+                        {/* <th>Acciones</th> */}
                     </tr>
                 </thead>
                 <tbody>
@@ -68,9 +55,9 @@ function ProductoGet() {
                             <td>{prod.stock}</td>
                             <td>{prod.descripcion}</td>
                             <td>{prod.estado}</td>
-                            <td>
+                            {/* <td>
                                 <button onClick={() => eliminar(prod.id)}>Eliminar</button>
-                            </td>
+                            </td> */}
                         </tr>
                     ))}
                 </tbody>
